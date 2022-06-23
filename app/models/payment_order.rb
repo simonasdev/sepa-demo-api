@@ -1,8 +1,8 @@
 class PaymentOrder < ApplicationRecord
-  STATUSES = %w[draft pending completed failed]
+  STATUSES = %w[pending processing completed failed]
 
-  belongs_to :issuer
-  belongs_to :receiver
+  belongs_to :issuer, class_name: 'Customer'
+  belongs_to :receiver, class_name: 'Customer'
   has_one :payment
 
   enum status: STATUSES.zip(STATUSES).to_h
