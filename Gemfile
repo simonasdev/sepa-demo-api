@@ -19,4 +19,9 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
