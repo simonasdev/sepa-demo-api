@@ -4,9 +4,9 @@ class ProcessPaymentOrderJob < ApplicationJob
   def perform(*id)
     payment_order = PaymentOrder.find(id)
 
-    # perform direct debit initiation
-
     payment_order.processing!
+
+    # execute some kind of SEPA integration
   end
 end
 

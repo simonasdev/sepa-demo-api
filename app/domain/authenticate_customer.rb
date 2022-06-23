@@ -3,7 +3,7 @@ class AuthenticateCustomer
 
   ResultStruct = Struct.new(:success?, :data)
 
-  initialize_with :email, :password
+  initialize_with :params
 
   def run
     return ResultStruct.new(false, ['Invalid credentials']) unless credentials_valid?
@@ -15,6 +15,14 @@ class AuthenticateCustomer
 
   def credentials_valid?
     customer&.authenticate(password)
+  end
+
+  def email
+    params[:email]
+  end
+
+  def password
+    params[:password]
   end
 
   def customer

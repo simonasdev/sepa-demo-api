@@ -15,7 +15,7 @@ class API::PaymentOrdersController < APIController
     if result.success?
       render json: { data: result.data }, status: :created
     else
-      render json: { errors: result.data }, status: :unauthorized
+      render json: { errors: result.data }, status: :unprocessable_entity
     end
   end
 

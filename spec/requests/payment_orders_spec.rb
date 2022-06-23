@@ -13,7 +13,7 @@ RSpec.describe 'Payment orders' do
   end
 
   context 'authenticated user' do
-    let(:auth_token) { AuthenticateCustomer.for(customer.email, customer.password).data }
+    let(:auth_token) { AuthenticateCustomer.for(customer.slice(:email, :password)).data }
     let(:receiver) { create(:customer, :with_account) }
 
     it 'returns a list of customer payment orders' do
